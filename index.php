@@ -11,7 +11,7 @@ if(!$conn){echo "Lost Connect";}
 		echo "Vao dc roi";
 	}
 	else{
-		echo "Ngu vl";
+		echo "sai mat khau ban oi ";
 	}
  }
 		
