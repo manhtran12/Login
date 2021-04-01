@@ -1,22 +1,21 @@
 <?php	 
  $conn = pg_connect("host=ec2-54-205-183-19.compute-1.amazonaws.com dbname=dbfdi5nhqt1i93 user=uxnxvpzveabldk password=f5ed2b8e64715c9f3b7d61680b46a417d137813cff0de179fd02fc921625059d");
  if(!$conn){echo "Loi ket noi";}
- $dbconn= pg_connect($conn_string);
-if (isset($_POST['username'])) {
-	$username=$_POST['username'];
-
-}
-if (isset($_POST['password'])) {
-	$password=$_POST['password'];
-}
-$result= pg_query($dbconn, "SELECT * FROM accout");
-while ($row=pg_fetch_row($result)) {
-	if ($row[0]==$username && $row[1]==$password) {
-		echo "Successfull";
-	}else{
-		echo ".......";
+if(isset($_POST['login'])){
+	$username = $_POST['username'];
+ 	$password = $_POST['password'];
+ 	$sql= "SELECT * FROM accout WHERE user_name ='$username' and password='$password'";
+	$result = pg_query($conn, $sql);
+	$check = pg_num_rows($result);
+	if($check == 1){
+		echo "Vao dc roi";
 	}
-}
+	else{
+		echo "Ngu vl";
+	}
+ }
+		
+
  ?>
 
 <!DOCTYPE html>
@@ -41,14 +40,14 @@ while ($row=pg_fetch_row($result)) {
 		<div class="card">
 			<h3>Sign In</h3>
 		</div>
-		<form method="POST">
-		<div class="card-body">
-			<label>username</label>
-			<input type="text" name="username">
-			<label>password</label>
-			<input type="password" name="password">
-			<input name="login" type="submit" value="login">
-		</div>
+		<form method="post">
+			<div class="card-body">
+				<label>username</label>
+				<input type="text" name="username">
+				<label>password</label>
+				<input type="password" name="password">
+				<button name="login" type="submit" value="login">Login</button>
+			</div>
 		</form>
 	</div>
 </body>
