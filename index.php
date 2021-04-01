@@ -1,5 +1,5 @@
 <?php	 
- $conn = pg_connect("host=ec2-54-205-183-19.compute-1.amazonaws.com dbname=dbfdi5nhqt1i93 user=uxnxvpzveabldk password=f5ed2b8e64715c9f3b7d61680b46a417d137813cff0de179fd02fc921625059d");
+ $conn = pg_connect("host=ec2-52-21-252-142.compute-1.amazonaws.com dbname=dfdnn0lp8f9007 user=opsbldtpsnspff password=c03cda33e53bcee13f8d7b87c2b9a035787ba0b8ffb01e398791d8ad655c0e62");
 if(!$conn){echo "Lost Connect";}
  if(isset($_POST['login'])){
 	$username = $_POST['username'];
