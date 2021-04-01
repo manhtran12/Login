@@ -1,10 +1,10 @@
 <?php	 
  $conn = pg_connect("host=ec2-54-205-183-19.compute-1.amazonaws.com dbname=dbfdi5nhqt1i93 user=uxnxvpzveabldk password=f5ed2b8e64715c9f3b7d61680b46a417d137813cff0de179fd02fc921625059d");
- if(!$conn){echo "Loi ket noi";}
-if(isset($_POST['login'])){
+if(!$conn){echo "Lost Connect";}
+ if(isset($_POST['login'])){
 	$username = $_POST['username'];
  	$password = $_POST['password'];
- 	$sql= "SELECT * FROM accout WHERE user_name ='$username' and password='$password'";
+ 	$sql= "SELECT * FROM accout WHERE username ='$username' and password='$password'";
 	$result = pg_query($conn, $sql);
 	$check = pg_num_rows($result);
 	if($check == 1){
@@ -52,3 +52,4 @@ if(isset($_POST['login'])){
 	</div>
 </body>
 </html>
+© 2021 GitHub, Inc.
